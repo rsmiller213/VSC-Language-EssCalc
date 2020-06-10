@@ -1,0 +1,25 @@
+{
+    "name": "esscalc",
+    "displayName": "EssCalc",
+    "description": "Syntax Highlighting for Essbase Calculations",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.45.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "csc",
+            "aliases": ["EssCalc", "csc"],
+            "extensions": [".csc"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "csc",
+            "scopeName": "source.esscalc",
+            "path": "./syntaxes/csc.tmLanguage.json"
+        }]
+    }
+}

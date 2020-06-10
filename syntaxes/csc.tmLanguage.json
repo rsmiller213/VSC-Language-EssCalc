@@ -1,0 +1,106 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "EssCalc",
+	"patterns": [
+		{"include": "#keywords"},
+		{"include": "#strings"},
+		{"include": "#comments"},
+		{"include": "#constants"}
+		
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"comment": "Wrapper Keywords",
+					"name": "keyword.control.csc",
+					"match": "(?i)\\b(FIX|ENDFIX|FIXPARALLEL|ENDFIXPARALLEL|IF|ELSE|ELSEIF|ENDIF|LOOP|ENDLOOP|EXCLUDE|ENDEXCLUDE)\\b"
+				},
+				{
+					"comment": "Operator Keywords",
+					"name": "keyword.other.csc",
+					"match": "(?i)\\b(AGGMISSG|CACHE|CALCPARALLEL|CALCTASKDIMS|CCTRACKCALC|CLEARUPDATESTATUS|COPYMISSINGBLOCK|CREATENONMISSINGBLK|CREATEBLOCKONEQ|FRMLBOTTOMUP|LOCKBLOCK|MSG|NOTICE|UPDATECALC|UPTOLOCAL|VAR|ARRAY|ALL|AVERAGE|DIM|FIRST|LAST|TWOPASS|ON|OFF|HIGH|DEFAULT|LOW|ALL|EMPTYMEMBERSETS|ERROR|SKIPNONE|SKIPMISSING|SKIPNONE|SKIPBOTH)\\b"
+				},
+				{
+					"comment": "General Keywords",
+					"name": "support.variable.csc",
+					"match": "(?i)\\b(AND|OR|NOT|TO|AGG|CALC|SET|CCONV|CLEARBLOCK|CLEARCCTRACK|CLEARDATA|DATACOPY|DATAEXPORT)\\b"
+				},
+				{
+					"comment": "@ Functions",
+					"name": "support.function.csc",
+					"match": "\\@\\w*"
+				},
+				{
+					"comment": "% Functions",
+					"name": "support.function.csc",
+					"match": "\\%\\w*|\\w*\\:\\="
+				},
+				{
+					"comment": "RTP / Sub / PRM Variables",
+					"name": "support.class.csc",
+					"match": "(\\{)(.*?)(\\})|&\\w*|(\\[)(.*?)(\\])"
+				}
+				
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.csc",
+					"begin": "\"",
+					"end": "\"",
+					"beginCaptures": {
+					  "0": {"name": "keyword.other.csc"}
+					},
+					"endCaptures": {
+					  "0": {"name": "keyword.other.csc"}
+					}
+				},
+				{
+					"name": "string.quoted.single.csc",
+					"begin": "'",
+					"end": "'",
+					"beginCaptures": {
+					  "0": {"name": "keyword.other.csc"}
+					},
+					"endCaptures": {
+					  "0": {"name": "keyword.other.csc"}
+					}
+				}
+			]
+		},
+		"comments":{
+			"patterns": [
+				{
+					"name": "comment.block.csc",
+					"begin": "/\\*",
+					"end": "\\*/",
+					"beginCaptures": {
+					  "0": {"name": "comment.block.csc"}
+					},
+					"endCaptures": {
+					  "0": {"name": "comment.block.csc"}
+					}
+				}
+				
+			]
+		},
+		"constants":{
+			"patterns":[
+				{
+					"comment": "General Numeric + #MISSING",
+					"name": "constant.numeric.csc",
+					"match": "\\s*(?<=[^$])((0(x|X)[0-9a-fA-F]+)|([0-9]+(\\.[0-9]+)?))\\b|(?i)#MISSING"
+				},
+				{
+					"comment": "Operators",
+					"name": "support.type.property-name",
+					"match": "->|=|!=|==|<|>|\\+|-|\\/|\\*"
+				}
+			]
+
+		}
+	},
+	"scopeName": "source.esscalc"
+}
