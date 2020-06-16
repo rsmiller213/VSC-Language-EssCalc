@@ -23,7 +23,7 @@
 				},
 				{
 					"comment": "General Keywords",
-					"name": "support.variable.csc",
+					"name": "support.class.csc",
 					"match": "(?i)\\b(AND|OR|NOT|TO|AGG|CALC|SET|CCONV|CLEARBLOCK|CLEARCCTRACK|CLEARDATA|DATACOPY|DATAEXPORT)\\b"
 				},
 				{
@@ -33,12 +33,12 @@
 				},
 				{
 					"comment": "% Functions",
-					"name": "support.function.csc",
+					"name": "support.module.csc",
 					"match": "\\%\\w*|\\w*\\:\\="
 				},
 				{
 					"comment": "RTP / Sub / PRM Variables",
-					"name": "support.class.csc",
+					"name": "support.variable.csc",
 					"match": "(\\{)(.*?)(\\})|&\\w*|(\\[)(.*?)(\\])"
 				}
 				
@@ -51,10 +51,10 @@
 					"begin": "\"",
 					"end": "\"",
 					"beginCaptures": {
-					  "0": {"name": "keyword.other.csc"}
+					  "0": {"name": "punctuation.start.csc"}
 					},
 					"endCaptures": {
-					  "0": {"name": "keyword.other.csc"}
+					  "0": {"name": "punctuation.end.csc"}
 					}
 				},
 				{
@@ -62,10 +62,10 @@
 					"begin": "'",
 					"end": "'",
 					"beginCaptures": {
-					  "0": {"name": "keyword.other.csc"}
+					  "0": {"name": "punctuation.start.csc"}
 					},
 					"endCaptures": {
-					  "0": {"name": "keyword.other.csc"}
+					  "0": {"name": "punctuation.end.csc"}
 					}
 				}
 			]
@@ -95,8 +95,8 @@
 				},
 				{
 					"comment": "Operators",
-					"name": "support.type.property-name",
-					"match": "->|=|!=|==|<|>|\\+|-|\\/|\\*"
+					"name": "support.type",
+					"match": "->|=|!=|==|<|>|\\+|-|\\/|\\*|\\;"
 				}
 			]
 
